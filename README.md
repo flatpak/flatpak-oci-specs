@@ -25,5 +25,10 @@ Owen Taylor <<otaylor@redhat.com>> and Alexander Larsson <<alexl@redhat.com>>.
 
 ## Contributing
 
+Specifications should be clean according to
+[markdownlint](https://github.com/DavidAnson/markdownlint)
+([vscode extension](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint))
+and line-wrapped to 100 columns, using [semantic line breaks](https://sembr.org/).
+
 The specification and code is licensed under the Apache 2.0 license found
 in the [LICENSE](LICENSE) file of this repository.
