@@ -53,10 +53,10 @@ url = index_server + '/index/static?' + '&'.join(sorted(quoted))
 
 The basic structure of the JSON returned from a request is:
 
-```json
+```js
 {
-    "Registry": <url>,
-    "Results": [ <array of repositories> ]
+    "Registry": "<url>",
+    "Results": [Repository, ...]
 }
 ```
 
@@ -67,11 +67,11 @@ The basic structure of the JSON returned from a request is:
 
 ### Repository
 
-```json
+```js
 {
     "Name": "some/repository",
-    "Images": [ <array of images> ]
-    "Lists": [ <array of image lists> ]
+    "Images": [Image, ...]
+    "Lists": [ImageList, ...]
 }
 ```
 
@@ -82,18 +82,20 @@ The basic structure of the JSON returned from a request is:
 
 ### Image
 
-```json
+```js
 {
-    "Tags": ["<tag>", "<tag>"],
+    "Tags": ["<tag>", ...],
     "Digest": "<digest>",
     "MediaType": "<media type>",
     "OS": "<os>",
     "Architecture": "<architecture>",
     "Annotations": {
-        "org.example.annotations.x": "<value>"
+        "org.example.annotations.x": "<value>",
+        ...
     }
     "Labels": {
-        "com.redhat.component": "<value>"
+        "com.redhat.component": "<value>",
+        ...
     }
 }
 ```
@@ -115,16 +117,14 @@ The basic structure of the JSON returned from a request is:
 * **`Annotations`**: Annotations applied to the image.
 * **`Labels`**: Labels applied to the image
 
-### Image List
+### ImageList
 
-```json
+```js
 {
     "Tags": ["<tag>", "<tag>"],
     "Digest": "<digest>",
     "MediaType": "<media type>",
-    "Images": [
-        { <array of images, no tags field> },
-    ]
+    "Images": [Image, ...]  // No Tags fields
 }
 ```
 
