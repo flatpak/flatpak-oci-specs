@@ -33,7 +33,7 @@ The following query parameters are understood:
   or for the `:exists` form, exists with any value.
 
 For parameters with `:exists` suffix,
-it is undefined what happens if any value other `1` is specified.
+it is undefined what happens if any value other than `1` is specified.
 
 For requests to `/static`,
 Clients SHOULD sort their request parameters by the URL-encoded value of the `<key>=<value>` string.
