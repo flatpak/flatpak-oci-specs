@@ -14,6 +14,13 @@ Included specifications are:
 **[Registry Index](registry-index)**
 A protocol and index format for flexibly querying images stored in a repository.
 
+**[Image Deltas](image-deltas)**
+A mechanism for efficiently downloading a new version of an image
+when the client already has a previous version.
+
+**[tardiff](tardiff)**
+A binary format for representing the difference between two layers.
+
 ## Authors
 
 These specifications were originally created by
