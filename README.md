@@ -11,10 +11,10 @@ but are currently only used within the Flatpak ecosystem.
 
 Included specifications are:
 
-**[Registry Index](registry-index)**
+**[Registry Index](registry-index.md)**
 A protocol and index format for flexibly querying images stored in a repository.
 
-**[Image Deltas](image-deltas)**
+**[Image Deltas](image-deltas.md)**
 A mechanism for efficiently downloading a new version of an image
 when the client already has a previous version.
 
