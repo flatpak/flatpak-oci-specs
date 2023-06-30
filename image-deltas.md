@@ -45,7 +45,7 @@ a container image also contains checksums of the uncompressed layers -
 the [DiffID](https://github.com/opencontainers/image-spec/blob/master/config.md#layer-diffid).
 
 [tar-diff](https://github.com/containers/tar-diff/)
-([spec](https://github.com/containers/tar-diff/blob/master/file-format.md))
+([spec](https://github.com/containers/tar-diff/blob/main/file-format.md))
 is a file format for describing a delta from one uncompressed tar file to another uncompressed file.
 The reconstructed tar file is checksummed to compare with the DiffID in the source tar file,
 and unpacked into the local filesystem for use.
