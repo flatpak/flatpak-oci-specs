@@ -23,8 +23,10 @@ The following query parameters are understood:
   and  images within image lists with the given tag
 * `os=<value>`: limit results to images for the given operating system.
   Values are as for [`GOOS`](https://golang.org/doc/install/source#environment).
+  [[Note 1](#note-1)]
 * `architecture=<value>`: limit results to images for the given architecture.
   Values are as for [`GOARCH`](https://golang.org/doc/install/source#environment).
+  [[Note 1](#note-1)]
 * `annotation:<annotation>=<value>`, `annotation:<annotation>:exists=1`:
   Limit results to images where the annotation `<annotation>` has the given value,
   or for the `:exists` form, exists with any value.
@@ -112,8 +114,10 @@ The basic structure of the JSON returned from a request is:
   `application/vnd.docker.distribution.manifest.v2+json`
 * **`OS`**: The operating system that this image is for.
   Values are as for [`GOOS`](https://golang.org/doc/install/source#environment).
+  [[Note 1](#note-1)]
 * **`Architecture`**: The architecture this image is for.
   Values are as for [`GOARCH`](https://golang.org/doc/install/source#environment).
+  [[Note 1](#note-1)]
 * **`Annotations`**: Annotations applied to the image.
 * **`Labels`**: Labels applied to the image
 
@@ -139,8 +143,8 @@ The basic structure of the JSON returned from a request is:
   For example, if an image list has images for the `i386`, `amd64`, and `arm64` architectures
   and `architecture=amd64` is present in the query, only the amd64 image will be included.
 
-## Notes
+### Note 1
 
-* For images within an image list, the architecture matched by `architecture=` queries and
-  returned in the JSON result is the architecture extracted from the images `config.json`,
-  not the architecture in the manifest list or image index.
+For images within an image list, the architecture matched by `architecture=` queries and
+returned in the JSON result is the architecture extracted from the images `config.json`,
+not the architecture in the manifest list or image index.
