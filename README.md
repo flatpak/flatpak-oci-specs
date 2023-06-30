@@ -11,6 +11,9 @@ but are currently only used within the Flatpak ecosystem.
 
 Included specifications are:
 
+**[Registry Index](registry-index)**
+A protocol and index format for flexibly querying images stored in a repository.
+
 ## Authors
 
 These specifications were originally created by
