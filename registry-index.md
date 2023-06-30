@@ -35,6 +35,15 @@ The following query parameters are understood:
 For parameters with `:exists` suffix,
 it is undefined what happens if any value other than `1` is specified.
 
+Multiple parameters with the same key are OR'ed together:
+An image&nbsp;*I* matches a given set of query parameters *S* iff: For each *K*=*V*
+in *S*: either *K*=*V* matches S or there is another *K*=*V&prime;* in *S*
+with the same *K* and *K*=*V&prime;* matches *S*.
+
+*Example*: `label:org.example.a:exists=1&label:org.example.b=X&label:org.example.b=Y`
+matches images which have any `org.example.a` label,
+and an `org.example.b` label with the value `X` or `Y`.
+
 For requests to `/static`,
 Clients SHOULD sort their request parameters by the URL-encoded value of the `<key>=<value>` string.
 Python example:
