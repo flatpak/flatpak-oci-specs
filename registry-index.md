@@ -145,6 +145,12 @@ The basic structure of the JSON returned from a request is:
 
 ### Note 1
 
-For images within an image list, the architecture matched by `architecture=` queries and
-returned in the JSON result is the architecture extracted from the images `config.json`,
-not the architecture in the manifest list or image index.
+For images within an image list,
+the architecture and OS matched by `architecture=` and `os=` queries
+and returned as `Architecture` and `OS` in the JSON result
+MAY either be the values extracted from the image's
+[Image Configuration](https://github.com/opencontainers/image-spec/blob/main/config.md),
+or the values from the
+[platform object](https://github.com/opencontainers/image-spec/blob/main/image-index.md#image-index-property-descriptions)
+in the image index.
+The behavior when these don't match is undefined.
