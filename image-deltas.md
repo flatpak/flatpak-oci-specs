@@ -61,10 +61,11 @@ One way to use an delta manifest is to store it as an
 
 All delta manifests for a repository are referenced by a single
 [OCI image index](https://github.com/opencontainers/image-spec/blob/master/image-index.md).
-Each manifest in this index has the MIME type `vnd.redhat.delta.manifest.v1+json`
-and has the annotation `io.github.containers.delta.target`,
-which is the digest of the image manifest that it corresponds to.
-This image index is tagged as `_deltaindex`.
+Each manifest in this index is an delta manifest as described below.
+The items in the `manifests` array have the media type `application/vnd.oci.image.manifest.v1+json`,
+and the annotation `io.github.containers.delta.target`,
+which is the digest of the full image manifest that the delta manifest corresponds to.
+The image index is tagged as `_deltaindex`.
 
 There may be alternative ways to locate an image delta manifest not specified here.
 If the manifest is not stored in a registry,
