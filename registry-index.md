@@ -102,11 +102,7 @@ The basic structure of the JSON returned from a request is:
 }
 ```
 
-* **`Tags`**: List of all tags applied to the image.
-  This appears only for images appearing in the `Images` list of a repository,
-  and not for images in an image List.
-  All tags applied to the image SHOULD be returned,
-  even if a `tag` parameter in the query limits the images returned by tag.
+* **`Tags`**: List of tags applied to the image. [[Note 2](#note-2)]
 * **`Digest`**: The digest of the image manifest.
   The manifest can be retrieved be retrieved from the relative url
   `<registry>/v2/<name>/manifests/<digest>`.
@@ -132,9 +128,7 @@ The basic structure of the JSON returned from a request is:
 }
 ```
 
-* **`Tags`**: List of all tags applied to the image list.
-  All tags applied to the image list SHOULD be returned,
-  not just the tags matching a `tag` parameter in the query.
+* **`Tags`**: List of tags applied to the image list. [[Note 2](#note-2)]
 * **`Digest`**: The digest of the Docker manifest list or OCI image index.
   The contents can be retrieved from the relative url `<registry>/v2/<name>/manifests/<digest>`.
 * **`MediaType`**: `application/vnd.docker.distribution.manifest.list.v2+json` or
@@ -148,3 +142,11 @@ The basic structure of the JSON returned from a request is:
 For images within an image list, the architecture matched by `architecture=` queries and
 returned in the JSON result is the architecture extracted from the images `config.json`,
 not the architecture in the manifest list or image index.
+
+### Note 2
+
+For `Tags` fields in images and image lists,
+when `tag` parameters in the query limits the set of returned images,
+an implementation MAY return only include tags matching the tags in the query.
+(This is specified to avoid an implementation having to do excessive work to find all tags.)
+Otherwise, all tags applied to the image SHOULD be returned.
