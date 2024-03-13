@@ -159,3 +159,24 @@ when `tag` parameters in the query limits the set of returned images,
 an implementation MAY return only include tags matching the tags in the query.
 (This is specified to avoid an implementation having to do excessive work to find all tags.)
 Otherwise, all tags applied to the image SHOULD be returned.
+
+## Appendix - usage by Flatpak
+
+The specification here is general, but is primarily used by [Flatpak](https://flatpak.org/).
+If implementing this specification for use *only* by Flatpak clients,
+the following notes may be helpful in optimizing and simplifying the implementation.
+
+* Flatpak only uses the `/index/static endpoint`, and not the `/index/dynamic` endpoint
+* Flatpak will always include the following parameters in the query:
+  * `label:org.flatpak.ref:exists=1`
+  * `architecture=<ARCHITECTURE>`
+  * `os=<OS>`
+  * `tag=<TAG>`
+* Flatpak does not query on annotations or use the annotations in the returned result.
+  (Early versions of Flatpak OCI support used annotations instead of labels,
+  but Flatpak switched to using labels for Docker Image compatibility,
+  given poor registry support for OCI Images at that time.)
+* Flatpak retrieves images by digest and
+  does not care about the tag structure of the returned result.
+  It does not care whether images are returned in Images or ImageLists,
+  and does not look at the Tags field.
