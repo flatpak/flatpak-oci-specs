@@ -23,6 +23,14 @@ when the client already has a previous version.
 These specifications were originally created by
 Owen Taylor <<otaylor@redhat.com>> and Alexander Larsson <<alexl@redhat.com>>.
 
+## Known implmentations
+
+Some links below may be "permalinks" to ensure stability, but if you're
+viewing them you should likely look at the most recent commit.
+
+- [Flatpak OCI (permalink)](https://github.com/flatpak/flatpak/blob/66b038e14809bc973d46e8078a070dc32e894903/common/flatpak-oci-registry.c)
+- [flatpak-indexer](https://github.com/owtaylor/flatpak-indexer)
+
 ## Contributing
 
 Specifications should be clean according to
